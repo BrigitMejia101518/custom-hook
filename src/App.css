@@ -1,0 +1,20 @@
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+code {
+  background: #ececec;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+ul {
+  line-height: 1.9;
+}
