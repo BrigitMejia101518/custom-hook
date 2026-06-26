@@ -1,27 +1,30 @@
-import { useReducer } from "react";
-import { cartReducer } from "../utilidades/cartReducer";
+import { useCartStore } from "../utilidades/useCartStore";
+
 
 const PRODUCTS = [
-    {id: 1, name: "teclado", price: 30},
-    {id: 2, name: "raton", price: 15}
-]
+    {id: 1, name: "Teclado", price: 30},
+    {id: 2, name: "Raton", price: 15}
+];
 
 function Cart() {
-    const [items, dispatch] = useReducer(cartReducer, [])
+
+    const items = useCartStore((state) => state.items);
+    const add = useCartStore((state) => state.add);
+    const remove = useCartStore((state) => state.remove);
+    const increase = useCartStore((state) => state.increase);
+    const clear = useCartStore((state) => state.clear);
 
     return (
         <div>
             <h3>Catálogo</h3>
-            {
-                PRODUCTS.map((product) => (
-                    <button 
-                    key={product.id}
-                    onClick={() => dispatch({ type: "add", product})}
-                    >
-                        Añadir {product.name}
-                    </button>
+            {PRODUCTS.map((p) => (
+                <button key={p.id} onClick={() => add(p)}
+                >
+                    Añadir {p.name}
+                </button>
                 ))
             }
+
             <h3>Carrito({items.length})</h3>
             <ul>
                 {
@@ -29,12 +32,12 @@ function Cart() {
                         <li key={item.id}>
                             {item.name} X {item.amount}
                             <button 
-                                onClick={() => dispatch({ type: "increase", id: item.id })}
+                                onClick={() => increase(item.id)}
                             >
                                 +
                             </button>
                             <button
-                                onClick={() => dispatch({ type: "remove", id: item.id })}
+                                onClick={() => remove(item.id)}
 
                             >
                                 🗑️
@@ -44,7 +47,7 @@ function Cart() {
                 }
             </ul>
             <button
-            onClick={() => dispatch({ type: "clear" })}>Vaciar</button>
+            onClick={clear}>Vaciar</button>
         </div>
     )
 }

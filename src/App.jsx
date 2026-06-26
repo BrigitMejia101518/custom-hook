@@ -1,6 +1,7 @@
 import "./App.css";
 import { Cart } from "./components/Cart";
 import { Characters } from "./components/Characters";
+import { Head } from "./components/Head";
 
 // 👋 Punto de partida limpio para las clases 40 y 41.
 //
@@ -23,7 +24,7 @@ function App() {
           <Cart />
         </li>
         <li>
-          <code>src/store/</code> → stores de Zustand (clase 41)
+          <Head />
         </li>
       </ul>
     </main>
