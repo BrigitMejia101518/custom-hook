@@ -22,7 +22,6 @@ function App() {
         <li>
           <Cart />
         </li>
-        
         <li>
           <code>src/store/</code> → stores de Zustand (clase 41)
         </li>

@@ -25,7 +25,7 @@ function Cart() {
             <h3>Carrito({items.length})</h3>
             <ul>
                 {
-                    items.map((item) => {
+                    items.map((item) => (
                         <li key={item.id}>
                             {item.name} X {item.amount}
                             <button 
@@ -40,7 +40,7 @@ function Cart() {
                                 🗑️
                             </button>
                         </li>
-                    })
+                    ))
                 }
             </ul>
             <button
